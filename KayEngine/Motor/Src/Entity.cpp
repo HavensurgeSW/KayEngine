@@ -46,12 +46,7 @@ void Entity::SetPosition(float x, float y, float z)
 	UpdateMatrixModel();
 }
 
-void Entity::SetScale(float x, float y, float z)
-{
-	//if (z <= 0) z = 1;
-	//if (y <= 0) y = 1;
-	//if (x <= 0) x = 1;
-
+void Entity::SetScale(float x, float y, float z){
 	transform.scale[0] = x;
 	transform.scale[1] = y;
 	transform.scale[2] = z;
@@ -60,8 +55,7 @@ void Entity::SetScale(float x, float y, float z)
 	UpdateMatrixModel();
 }
 
-void Entity::SetRotationX(float x)
-{
+void Entity::SetRotationX(float x){
 	transform.rotation[0] = x;
 	glm::vec3 axis;
 	axis[0] = 1.0f;

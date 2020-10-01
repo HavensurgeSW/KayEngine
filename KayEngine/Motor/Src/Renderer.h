@@ -27,7 +27,7 @@ public:
 	void ClearShader();
 	void BindBuffer(unsigned int vbo, unsigned int posAttrib, unsigned int colAttrib);
 	void UnbindBuffer();
-	void BeignDraw();
+	void BeginDraw();
 	void Draw(GLenum figura, int vertexs, unsigned int vbo, unsigned int& shaderProg, unsigned int posAttrib, unsigned int colAttrib, glm::mat4 model);
 	void EndDraw(Windows* refWindow);
 	unsigned int CompileShader(unsigned int type, const std::string& source);

@@ -44,21 +44,21 @@ int GameBase::Init()
 	//VALORES DE TESTEO
 	float posX = 0;
 	float posY = 0;
-	float speed = 0.05f;
+	float speed = 0.02f;
 	const float posZ = 1;
 
 	float rotX = 0;
 	float rotY = 0;
-	float rotZ = 0;
-	float speedRotation = 0.05f;
+	float rotZ = 0.5f;
+	float speedRotation = 0.02f;
 
-	float scalX = 0;
-	float scalY = 0;
-	float scalZ = 0;
-	float speedScale = 0.05f;
+	float scalX = 0.1f;
+	float scalY = 0.5f;
+	float scalZ = 0.2f;
+	float speedScale = 0.02f;
 
 	float r = 1.0f;
-	float g = 0.0f;
+	float g = 0.5f;
 	float b = 0.0f;
 	float a = 1.0f;
 	bool enableSetSolidColor = true;
@@ -76,46 +76,13 @@ int GameBase::Init()
 
 		tri->Draw(GL_TRIANGLES, 3, render->GetShader(), windows, tri->GetInternalData().model);
 		
-		//Movement inputs
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_W) == GLFW_PRESS){
-			posY = posY + speed;
-			tri->SetPosition(posX, posY, posZ);
+		if (glfwGetKey(windows->GetWindowsPtr(),GLFW_KEY_1) == GLFW_PRESS) {
+			tri->SetPosition(0.05f,0.02f, 0.08f);
 		}
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_S) == GLFW_PRESS){
-			posY = posY - speed;
-			tri->SetPosition(posX, posY, posZ);
-		}
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_D) == GLFW_PRESS){
-			posX = posX + speed;
-			tri->SetPosition(posX, posY, posZ);
-		}
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_A) == GLFW_PRESS){
-			posX = posX - speed;
-			tri->SetPosition(posX, posY, posZ);
-		}
-
-		//Rotations inputs
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_LEFT) == GLFW_PRESS){
-			rotZ = rotZ + speedRotation;
+		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_2) == GLFW_PRESS) {
 			tri->SetRotationZ(rotZ);
 		}
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_RIGHT) == GLFW_PRESS){
-			rotZ = rotZ - speedRotation;
-			tri->SetRotationZ(rotZ);
-		}
-	
-
-		//Scaling inputs
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_UP) == GLFW_PRESS){
-			scalX = scalX + speedScale;
-			scalY = scalY + speedScale;
-			scalZ = scalZ + speedScale;
-			tri->SetScale(scalX, scalY, scalZ);
-		}
-		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_DOWN) == GLFW_PRESS){
-			scalX = scalX - speedScale;
-			scalY = scalY - speedScale;
-			scalZ = scalZ - speedScale;
+		if (glfwGetKey(windows->GetWindowsPtr(), GLFW_KEY_3) == GLFW_PRESS){
 			tri->SetScale(scalX, scalY, scalZ);
 		}
 		

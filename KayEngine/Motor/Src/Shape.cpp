@@ -139,7 +139,7 @@ void Shape::Draw(GLenum figura,int vertexs, unsigned int& shaderProg, Windows* r
 {
 	if (renderer != NULL)
 	{
-		renderer->BeignDraw();
+		renderer->BeginDraw();
 
 		renderer->Draw(figura, vertexs, GetVbo(), shaderProg,GetPosAttrib(),GetColAttrib(), model);
 

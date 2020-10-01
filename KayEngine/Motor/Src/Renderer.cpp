@@ -2,7 +2,6 @@
 #include "Renderer.h"
 #include <iostream>
 Renderer::Renderer() {
-	//Nada
 }
 Renderer::~Renderer() {
 	//DeleteShaders();
@@ -41,14 +40,10 @@ bool Renderer::GLLogCall(){
 void Renderer::UseProgram(unsigned int& shader, glm::mat4 model){
 
 	unsigned int modelLocation = glGetUniformLocation(shader, "model");
-	std::cout << "model location: "<<modelLocation << std::endl;
-	//unsigned int viewLocation = glGetUniformLocation(shader, "view");
-	//unsigned int projectionLocation = glGetUniformLocation(shader, "projection");
 	glUseProgram(shader);
 
 	glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
-	//glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-	//glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+	
 }
 
 void Renderer::ClearShader(){
@@ -67,7 +62,7 @@ void Renderer::UnbindBuffer(){
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void Renderer::BeignDraw(){
+void Renderer::BeginDraw(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
@@ -114,17 +109,17 @@ unsigned int Renderer::CompileShader(unsigned int type, const std::string& sourc
 
 int Renderer::CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)
 {
-	unsigned int sProgram = glCreateProgram();
+	unsigned int shaderProgram = glCreateProgram();
 	unsigned int vertex = CompileShader(GL_VERTEX_SHADER, vertexShader);
 	unsigned int fragment = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
 
-	glAttachShader(sProgram, vertex);
-	glAttachShader(sProgram, fragment);
-	glLinkProgram(sProgram);
-	glValidateProgram(sProgram);
+	glAttachShader(shaderProgram, vertex);
+	glAttachShader(shaderProgram, fragment);
+	glLinkProgram(shaderProgram);
+	glValidateProgram(shaderProgram);
 
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
 
-	return sProgram;
+	return shaderProgram;
 }
