@@ -16,6 +16,7 @@ private:
 	
 	Shape* quad;
 	Shape* tri;
+	Shape* tri2;
 public:
 	GameBase();
 	~GameBase();

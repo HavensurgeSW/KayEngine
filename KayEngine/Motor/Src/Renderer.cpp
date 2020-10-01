@@ -63,18 +63,14 @@ void Renderer::UnbindBuffer(){
 }
 
 void Renderer::BeginDraw(){
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void Renderer::Draw(GLenum figura, int vertexs, unsigned int vbo, unsigned int& shaderProg, unsigned int posAttrib, unsigned int colAttrib, glm::mat4 model){
-	
 	BindBuffer(vbo, posAttrib, colAttrib);
-
 	UseProgram(shaderProg, model);
-
 	glDrawArrays(figura, 0, vertexs);
-
 	UnbindBuffer();
 }
 
@@ -107,8 +103,7 @@ unsigned int Renderer::CompileShader(unsigned int type, const std::string& sourc
 	return id;
 }
 
-int Renderer::CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader)
-{
+int Renderer::CreateShaderProgram(const std::string& vertexShader, const std::string& fragmentShader){
 	unsigned int shaderProgram = glCreateProgram();
 	unsigned int vertex = CompileShader(GL_VERTEX_SHADER, vertexShader);
 	unsigned int fragment = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
