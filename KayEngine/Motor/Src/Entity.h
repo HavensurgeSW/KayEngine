@@ -33,18 +33,7 @@ struct ENGINE_API InternalData{
 class ENGINE_API Entity{
 protected:
 	Renderer* renderer;
-	InternalData internalData;
-	void UpdateMatrixModel();
 public:
-	Entity(Renderer *_renderer);
-	~Entity();
-	Transform transform;
-	Renderer* GetRenderer();
-	InternalData GetInternalData();
-	void SetPosition(float x, float y, float z);
-	void SetScale(float x, float y, float z);
-	void SetRotationX(float x);
-	void SetRotationY(float y);
-	void SetRotationZ(float z);
+	
 };
 #endif
