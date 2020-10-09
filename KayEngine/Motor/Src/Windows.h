@@ -17,5 +17,10 @@ public:
 	Windows();
 	Windows(int x, int y, const char* name);
 	~Windows();
+	int CheckCreateWindows();
+	void CreateContextWindows();
+	bool CheckGLFWwindowShouldClose();
+	//void ClearWindows();
+	void SwapBuffersWindows();
 };
 #endif

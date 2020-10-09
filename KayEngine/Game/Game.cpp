@@ -4,12 +4,10 @@ Game::Game(){
 
 }
 
-Game::~Game()
-{
+Game::~Game(){
 
 }
 
-void Game::Play()
-{
+void Game::Play(){
 	Init();
 }
